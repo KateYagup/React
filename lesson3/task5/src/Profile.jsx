@@ -3,14 +3,14 @@ import moment from 'moment';
 
 const formatDate = date => moment(date).format('DD MMM YY');
 
-const Profile = (userData) => {
+const Profile = (props) => {
     return (
         <div>
             <div className='profile__name'>
-                {`${userData.firstName} ${userData.lastName} `}
+                {`${props.userData.firstName} ${props.userData.lastName} `}
             </div>
             <div className='profile__birth'>
-                {`Was born ${formatDate(userData.birthDate)} in ${userData.birthPlace} `}
+                {`Was born ${formatDate(props.birthDate)} in ${props.userData.birthPlace} `}
             </div>
         </div>
     )

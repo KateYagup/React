@@ -14,10 +14,11 @@ const userData = {
 const root = document.querySelector('#root');
 
 ReactDOM.render(<Profile
-    firstName={userData.firstName}
-    lastName={userData.lastName}
-    birthDate={userData.birthDate}
-    birthPlace={userData.birthPlace}
+    userData={userData}
+// firstName={userData.firstName}
+// lastName={userData.lastName}
+// birthDate={userData.birthDate}
+// birthPlace={userData.birthPlace}
 />,
     root);
 
