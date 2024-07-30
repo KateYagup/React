@@ -19,7 +19,7 @@ const Greeting = (props) => {
     console.log(age);
     return (
         <div className="greeting">
-            {`My name is ${props.firstName} ${props.lastName}.I am ${age} years old`}
+            {`My name is ${props.firstName} ${props.lastName}. I am ${age} years old`}
         </div>
     )
 }
