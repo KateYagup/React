@@ -20,7 +20,7 @@ class Clock extends Component {
         }
         setInterval(() => {
             this.setState({
-                offset: this.state.offset + 1,
+                offset: this.state.offset,
             })
         }, 1000);
     }
