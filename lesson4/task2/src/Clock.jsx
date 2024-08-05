@@ -27,9 +27,9 @@ class Clock extends Component {
 
     render() {
         console.log(this.props.offset);
-        console.log(getTimeWithOffset(this.props.offset));
-        const time = getTimeWithOffset(this.props.offset);
-        console.log(time.getDay());
+        // console.log(getTimeWithOffset(this.props.offset));
+        const time = getTimeWithOffset(this.props.offset + 1);
+        // console.log(time.getDay());
         return (
             <>
                 <div className="clock">
