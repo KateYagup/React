@@ -5,7 +5,7 @@ const App = (props) => {
     return (
         <>
             <Clock location='London' offset={0} />
-            <Clock location='Kyiv' offset={2} />
+            <Clock location='Kyiv' offset={3} />
             <Clock location='New York' offset={-5} />
         </>
     )
