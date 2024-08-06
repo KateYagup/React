@@ -2,8 +2,9 @@ import React from "react";
 
 class GoodButton extends React.Component {
     handleClick(event) {
-        console.log(event.target);
-        alert('Click me!');
+        alert(event.target.textContent);
+        // console.log(event.target.textContent);
+
     }
     render() {
         return (
