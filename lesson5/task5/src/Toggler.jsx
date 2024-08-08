@@ -17,7 +17,8 @@ class Toggler extends Component {
 
     render() {
         return (
-            <div onClick={() => this.toggleFunc()}>
+            <div className="toggler"
+                onClick={() => this.toggleFunc()}>
                 {this.state.onOff}
             </div >
         )
