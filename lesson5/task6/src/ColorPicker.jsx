@@ -38,16 +38,18 @@ class ColorPicker extends Component {
                     <button
                         className="picker__button picker__button_coral"
                         onMouseOver={(e) => this.setTextColor(e)}
-                        onMouseOut={() => this.setNoText()}
-                    ></button>
+                        onMouseOut={() => this.setNoText()}>
+                    </button>
                     <button
                         className="picker__button picker__button_aqua"
                         onMouseOver={(e) => this.setTextColor(e)}
-                        onMouseOut={() => this.setNoText()}></button>
+                        onMouseOut={() => this.setNoText()}>
+                    </button>
                     <button
                         className="picker__button picker__button_bisque"
                         onMouseOver={(e) => this.setTextColor(e)}
-                        onMouseOut={() => this.setNoText()} ></button>
+                        onMouseOut={() => this.setNoText()}>
+                    </button>
                 </div>
             </div>
         )
