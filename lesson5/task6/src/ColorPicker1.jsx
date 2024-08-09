@@ -1,18 +1,24 @@
 import React, { Component } from "react";
 import './index.scss';
 
+const RED = 'Red';
+const CORAL = 'Coral';
+const AQUA = 'Aqua';
+
 class ColorPicker extends Component {
     constructor() {
         super();
         this.state = {
-            color: 'Red',
+            color: RED,
         }
     }
 
-    setTextColor(text) {
-
+    setTextColor(e) {
+        const colClass = e.target.className.split('_');
+        const newColor = String(colClass.slice(-1));
+        const result = newColor.charAt(0).toUpperCase() + newColor.slice(1);
         this.setState({
-            color: text,
+            color: result,
         })
     }
 
@@ -31,17 +37,17 @@ class ColorPicker extends Component {
                 <div>
                     <button
                         className="picker__button picker__button_coral"
-                        onMouseOver={() => this.setTextColor('Coral')}
+                        onMouseOver={(e) => this.setTextColor(e)}
                         onMouseOut={() => this.setNoText()}>
                     </button>
                     <button
                         className="picker__button picker__button_aqua"
-                        onMouseOver={() => this.setTextColor('Aqua')}
+                        onMouseOver={(e) => this.setTextColor(e)}
                         onMouseOut={() => this.setNoText()}>
                     </button>
                     <button
                         className="picker__button picker__button_bisque"
-                        onMouseOver={() => this.setTextColor('Bisque')}
+                        onMouseOver={(e) => this.setTextColor(e)}
                         onMouseOut={() => this.setNoText()}>
                     </button>
                 </div>
