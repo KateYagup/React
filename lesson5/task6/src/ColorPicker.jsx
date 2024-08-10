@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import './index.scss';
 
+
+
 class ColorPicker extends Component {
     constructor() {
         super();
@@ -10,7 +12,6 @@ class ColorPicker extends Component {
     }
 
     setTextColor(text) {
-
         this.setState({
             color: text,
         })
