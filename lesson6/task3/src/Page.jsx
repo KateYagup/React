@@ -22,7 +22,7 @@ class Page extends Component {
     render() {
         return (
             <div  >
-                <Info text={this.state.text} />
+                <Info info={this.state.text} />
                 {/* <div className="text">*text here*</div> */}
                 <div className="actions">
                     <button className="btn" onClick={() => this.setText(text1)}>IPhone 13</button>
