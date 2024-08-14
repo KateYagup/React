@@ -30,7 +30,7 @@ class Auth extends Component {
             <div className="panel">
                 <Greeting isLoggedIn={this.state.isLoggedIn} />
                 <div>
-                    <Spinner size={100} />
+                    <Spinner size='100px' />
                     {this.state.isLoggedIn ? (
                         <Logout onLogout={this.handleLogout} />
                     ) : (
