@@ -10,27 +10,56 @@ class Auth extends Component {
         super(props);
         this.state = {
             isLoggedIn: false,
+            isSpinner: true,
+            counter: 0,
         }
+        // setInterval(() => {
+        //     this.setState({
+        //         counter: this.state.counter + 1,
+        //     });
+        // }, 1000);
     }
+
+    startCount() {
+        setInterval(() => {
+            this.setState({
+                counter: this.state.counter + 1,
+            });
+        }, 1000);
+        console.log(this.state.counter);
+    }
+
 
     handleLogin = () => {
         this.setState({
             isLoggedIn: true,
+            isSpinner: true,
+
         })
     }
 
     handleLogout = () => {
         this.setState({
             isLoggedIn: false,
+            isSpinner: false,
         })
+
     }
 
     render() {
+        const s = false;
+        let spinner;
+        if (s)
+            spinner = <Spinner size="50px" visible={this.state.isSpinner} />
+
         return (
             <div className="panel">
+
+                {spinner}
                 <Greeting isLoggedIn={this.state.isLoggedIn} />
                 <div>
-                    <Spinner size='100px' />
+
+
                     {this.state.isLoggedIn ? (
                         <Logout onLogout={this.handleLogout} />
                     ) : (
