@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Greeting from './Greeting';
 import Logout from './Logout';
 import Login from './Login';
+import Spinner from './Spinner';
 
 
 class Auth extends Component {
@@ -29,12 +30,14 @@ class Auth extends Component {
             <div className="panel">
                 <Greeting isLoggedIn={this.state.isLoggedIn} />
                 <div>
+                    <Spinner size={100} />
                     {this.state.isLoggedIn ? (
                         <Logout onLogout={this.handleLogout} />
                     ) : (
                         <Login onLogin={this.handleLogin} />
                     )}
                 </div>
+
             </div>
         )
     }
