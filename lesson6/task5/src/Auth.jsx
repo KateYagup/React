@@ -10,63 +10,64 @@ class Auth extends Component {
         super(props);
         this.state = {
             isLoggedIn: false,
-            isSpinner: true,
+            processing: false,
             counter: 0,
         }
-        // setInterval(() => {
-        //     this.setState({
-        //         counter: this.state.counter + 1,
-        //     });
-        // }, 1000);
     }
 
     startCount() {
-        setInterval(() => {
+        setTimeout(() => {
             this.setState({
-                counter: this.state.counter + 1,
+                processing: false,
             });
         }, 1000);
-        console.log(this.state.counter);
     }
-
 
     handleLogin = () => {
         this.setState({
             isLoggedIn: true,
-            isSpinner: true,
-
+            processing: true,
         })
     }
 
     handleLogout = () => {
         this.setState({
             isLoggedIn: false,
-            isSpinner: false,
+            processing: false,
         })
-
     }
 
     render() {
-        const s = false;
         let spinner;
-        if (s)
-            spinner = <Spinner size="50px" visible={this.state.isSpinner} />
+        let button;
+        console.log('this.processing')
+        console.log(this.state.processing);
+        if (this.state.processing) {
+            spinner = <Spinner size="50px" />
+            this.startCount();
+        } else {
+            button = this.state.isLoggedIn
+                ? (
+                    <Logout onLogout={this.handleLogout} />
+                ) : (
+                    <Login onLogin={this.handleLogin} />
+                )
+
+        }
+
 
         return (
             <div className="panel">
-
-                {spinner}
                 <Greeting isLoggedIn={this.state.isLoggedIn} />
+                {spinner}
                 <div>
-
-
-                    {this.state.isLoggedIn ? (
+                    {button}
+                    {/* {this.state.isLoggedIn  (
                         <Logout onLogout={this.handleLogout} />
                     ) : (
                         <Login onLogin={this.handleLogin} />
-                    )}
+                    )} */}
                 </div>
-
             </div>
         )
     }
