@@ -5,7 +5,7 @@ import React from "react";
 const Transaction = ({ id, time, from, to, rate, amount }) => {
     return (
         <div>
-            <span className='transaction__date transaction'>{moment(time).format('D MMMM')}</span>
+            <span className='transaction__date transaction'>{moment(time).format('D MMM')}</span>
             <span className='transaction__time transaction'>{moment(time).format('HH:mm ')}</span>
             <span className='transaction__assets transaction' >{from} → {to}</span>
             <span className='transaction__rate transaction'>{new Intl.NumberFormat('en-GB').format(rate)}</span>
