@@ -1,4 +1,4 @@
-import moment from "moment/moment";
+import moment from "moment";
 import React from "react";
 // import './moment.js';
 
@@ -6,14 +6,14 @@ const formatter = new Intl.NumberFormat('en-GB');
 
 const Transaction = ({ id, time, from, to, rate, amount }) => {
     return (
-        <div>
-            <span className='transaction__date transaction'>{moment(time).format('DD MMM')}</span>
-            <span className='transaction__time transaction'>{moment(time).format('HH:mm ')}</span>
-            <span className='transaction__assets transaction' >{from} → {to}</span>
-            <span className='transaction__rate transaction'>{formatter.format(rate)}</span>
-            <span className='transaction__amount transaction' >{formatter.format(amount)}</span>
+        <li className='transaction'>
+            <span className='transaction__date '>{moment(time).format('DD MMM')}</span>
+            <span className='transaction__time '>{moment(time).format('HH:mm')}</span>
+            <span className='transaction__assets ' >{from} → {to}</span>
+            <span className='transaction__rate '>{formatter.format(rate)}</span>
+            <span className='transaction__amount ' >{formatter.format(amount)}</span>
 
-        </div>
+        </li>
     )
 }
 
