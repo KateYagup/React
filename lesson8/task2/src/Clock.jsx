@@ -5,8 +5,8 @@ class Clock extends Component {
         super(props)
         this.state = {
             date: new Date(),
-            utcOffset: new Date().getTimezoneOffset() / 60,
-            currTime: new Date(new Date().setHours(new Date().getHours() + this.props.offset + this.utcOffset)),
+            // utcOffset: new Date().getTimezoneOffset() / 60,
+            // currTime: new Date(new Date().setHours(new Date().getHours() + this.props.offset + this.utcOffset)),
         }
     }
 
@@ -14,6 +14,7 @@ class Clock extends Component {
         this.interval = setInterval(() => {
             this.setState({
                 date: new Date(),
+
             })
         }, 1000);
     }
@@ -22,16 +23,19 @@ class Clock extends Component {
         clearInterval(this.interval);
     }
 
-    getTimeWithOffset(currentTime, offset, utcOffset) {
-        return currentTime;
+    getTimeWithOffset(offset) {
+        const currentTime = new Date();
+        const utcOffset = currentTime.getTimezoneOffset() / 60;
+        return new Date(currentTime.setHours(currentTime.getHours() + offset + utcOffset));
     };
 
     render() {
+        const time = getTimeWithOffset(this.props.offset);
         console.log(this.props.currTime);
         console.log(this.state.date);
         return <div>
             {this.props.location}
-            {this.state.currTime.toLocaleTimeString()}
+            {moment(time).format('LTS')}
         </div>;
     }
 }
