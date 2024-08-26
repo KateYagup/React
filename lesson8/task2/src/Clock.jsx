@@ -5,7 +5,7 @@ class Clock extends Component {
         super(props)
         this.state = {
             // date: new Date(),
-            date: this.getTimeWithOffset(7),
+            date: this.getTimeWithOffset(this.props.offset),
             // utcOffset: new Date().getTimezoneOffset() / 60,
             // currTime: new Date(new Date().setHours(new Date().getHours() + this.props.offset + this.utcOffset)),
         }
