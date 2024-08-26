@@ -8,7 +8,6 @@ class App extends Component {
         this.state = {
             visible: true,
         };
-
         this.toggle = this.toggle.bind(this);
     }
 
