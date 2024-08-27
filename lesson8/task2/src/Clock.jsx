@@ -36,13 +36,9 @@ class Clock extends Component {
     };
 
     render() {
-        // const time = getTimeWithOffset(this.props.offset);
-        // console.log(this.props.currTime);
-        // console.log(this.state.date);
-        return <div>
-            {this.props.location}
-            {this.state.date.toLocaleTimeString()}
-            {/* {moment(this.date).format('LTS')} */}
+        return <div className='clock'>
+            <div className="clock__location">{this.props.location}</div>
+            <div className="clock__time">{this.state.date.toLocaleTimeString()}</div>
         </div>;
     }
 }
