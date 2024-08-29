@@ -29,7 +29,9 @@ class ConnectionStatus extends Component {
         </div>
         // showState.classList.add()
         console.log(this.state.status);
-        return showState;
+        return <div className={this.state.status == 'offline' ? name : name1}>
+            {this.state.status == 'offline' ? 'offline' : 'online'}
+        </div>;
     }
 
 }
