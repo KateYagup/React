@@ -2,20 +2,31 @@ import React, { Component } from 'react';
 
 class ConnectionStatus extends Component {
     state = {
-        status: 'offline',
+        status: 'online',
     }
 
     componentDidMount() {
-        // window.addEventListener('online', this.doActive);
-        window.addEventListener('offline', console.log('oline'));
+        window.addEventListener('online', this.doActive);
+        window.addEventListener('offline', this.doUnactive);
     }
 
-    // doActive() {
-    //     setState
-    // }
+    doActive() {
+        setState({
+            status: 'online'
+        })
+    }
+    doUnactive() {
+        setState({
+            status: 'offline'
+        })
+    }
 
     render() {
-        const showState = <div className="status status_offline">Offline</div>
+        const name = 'status status_offline';
+        const name1 = 'status';
+        const showState = <div className={this.state.status == 'offline' ? name : name1}>
+            {this.state.status == 'offline' ? 'offline' : 'online'}
+        </div>
         // showState.classList.add()
         console.log(this.state.status);
         return showState;
