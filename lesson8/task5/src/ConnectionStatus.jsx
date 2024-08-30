@@ -18,20 +18,20 @@ class ConnectionStatus extends Component {
         window.removeEventListener('offline', this.doUnactive);
     }
 
-    doActive() {
+    doActive = () => {
         this.setState({
             status: 'online'
         })
     }
-    doUnactive() {
+    doUnactive = () => {
         this.setState({
             status: 'offline'
         })
     }
 
     render() {
-        return <div className={this.state.status === 'online' ? 'status' : 'status status_offline'}>
-            {this.state.status === 'online' ? 'online' : 'offline'}
+        return <div className={this.state.status ? 'status' : 'status status_offline'}>
+            {this.state.status ? 'online' : 'offline'}
         </div>;
     }
 
