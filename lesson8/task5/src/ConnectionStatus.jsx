@@ -4,7 +4,7 @@ class ConnectionStatus extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            status: false,
+            status: 'online',
         }
     }
 
@@ -30,8 +30,8 @@ class ConnectionStatus extends Component {
     }
 
     render() {
-        return <div className={this.state.status ? 'status' : 'status status_offline'}>
-            {this.state.status ? 'online' : 'offline'}
+        return <div className={this.state.status === 'online' ? 'status' : 'status status_offline'}>
+            {this.state.status === 'online' ? 'online' : 'offline'}
         </div>;
     }
 
