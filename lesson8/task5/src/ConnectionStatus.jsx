@@ -4,7 +4,7 @@ class ConnectionStatus extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            status: 'online',
+            status: false,
         }
     }
 
@@ -25,7 +25,7 @@ class ConnectionStatus extends Component {
     }
     doUnactive = () => {
         this.setState({
-            status: 'offline'
+            status: false
         })
     }
 
