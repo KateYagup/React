@@ -3,7 +3,11 @@ import React from 'react';
 import UserForm from './UserForm';
 
 const App = () => {
-    return <UserForm />;
+
+    createUser = () => {
+        console.log('!!!');
+    }
+    return <UserForm onSubmit={createUser} />;
 };
 
 export default App;
