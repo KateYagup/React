@@ -6,6 +6,7 @@ class UserForm extends Component {
         event.preventDefault();
         const formData = [...new FormData(this.formRef)]
             .reduce((acc, [name, value]) => ({ ...acc, [name]: value }), {});
+        this.props.onSubmit(formData);
         console.log('formData');
         console.log(formData);
     }
