@@ -16,7 +16,7 @@ class UserForm extends Component {
             : value;
         // console.log(name + '  ' + value);
         this.setState({
-            [name]: value.toUpperCase()
+            [name]: value,
         })
     }
 
