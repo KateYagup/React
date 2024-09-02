@@ -4,8 +4,9 @@ import UserForm from './UserForm';
 
 const App = () => {
 
-    createUser = () => {
-        console.log('!!!');
+    const createUser = (formData) => {
+        console.log('formData');
+        console.log(formData);
     }
     return <UserForm onSubmit={createUser} />;
 };
