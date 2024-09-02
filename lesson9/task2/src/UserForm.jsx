@@ -3,21 +3,27 @@ import React, { Component } from 'react';
 class UserForm extends Component {
     state = {
         name: '',
-        student: '',
+        student: false,
         occupation: '',
         about: '',
     }
 
     handleChange = event => {
         const { name, value, checked, type } = event.target;
-
+        console.log(name + '   ' + value);
         const val = type === 'checkbox'
             ? checked
             : value;
         // console.log(name + '  ' + value);
-        this.setState({
-            [name]: value,
-        })
+        if (type === 'checkbox') {
+            this.setState({
+                student: !this.state.student,
+            })
+        } else {
+            this.setState({
+                [name]: value,
+            })
+        }
     }
 
     handleSubmit = event => {
