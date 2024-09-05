@@ -27,7 +27,7 @@ class UsersList extends Component {
             <>
                 <Filter
                     onChange={this.handleChange}
-                    filterText={this.handleChange}
+                    filterText={this.filterText}
                 />
                 {list}
             </>
