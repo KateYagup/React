@@ -8,6 +8,7 @@ class UsersList extends Component {
     }
 
     handleChange = event => {
+        event.persist();
         console.log(event.target.value);
         this.props.onChange(this.state.handleChange);
         this.setState({
