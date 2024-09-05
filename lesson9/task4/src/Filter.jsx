@@ -1,12 +1,13 @@
 import React from "react";
 import UsersList from "./UsersList";
 
-const Filter = props => {
-    const dataToFind = data => {
-        console.log(data);
+const Filter = ({ filterText }) => {
+
+    const dataToFind = filterText => {
+        console.log(filterText);
     }
     return (
-        <div onChange={dataToFind}>{data}</div>
+        <span onChange={dataToFind}>{filterText}</span>
     )
 
 }

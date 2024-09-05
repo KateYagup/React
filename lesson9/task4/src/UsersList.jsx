@@ -3,14 +3,14 @@ import User from './User';
 
 class UsersList extends Component {
     state = {
-        select: 'Tom',
+        filterText: '',
     }
 
     handleChange = event => {
         console.log(event.target.value);
-        this.props.onChange(this.state);
+        this.props.onChange(this.state.filterText);
         this.setState({
-            select: event.target.value,
+            filterText: event.target.value,
         })
 
     }
@@ -25,7 +25,7 @@ class UsersList extends Component {
             <>
                 <input
                     className="filter__input"
-                    value={this.state.select}
+                    value={this.state.filterText}
                     onChange={this.handleChange}
                 />
                 {list}
