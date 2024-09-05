@@ -1,5 +1,4 @@
 import React from "react";
-import UsersList from "./UsersList";
 
 const Filter = ({ filterText }) => {
 
@@ -7,7 +6,11 @@ const Filter = ({ filterText }) => {
         console.log(filterText);
     }
     return (
-        <span onChange={dataToFind}>{filterText}</span>
+        <input
+            className="filter__input"
+            value={filterText}
+            onChange={onChange}
+        />
     )
 
 }

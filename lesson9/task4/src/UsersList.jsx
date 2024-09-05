@@ -12,7 +12,6 @@ class UsersList extends Component {
         this.setState({
             filterText: event.target.value,
         })
-
     }
 
     render() {
@@ -23,11 +22,7 @@ class UsersList extends Component {
         ))
         return (
             <>
-                <input
-                    className="filter__input"
-                    value={this.state.filterText}
-                    onChange={this.handleChange}
-                />
+                <Filter noChange={this.handleChange} />
                 {list}
             </>
         )
