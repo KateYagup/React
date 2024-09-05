@@ -1,6 +1,6 @@
 import React from "react";
 
-const Filter = ({ filterText }) => {
+const Filter = ({ filterText, onChanges }) => {
 
     const dataToFind = filterText => {
         console.log(filterText);
@@ -8,8 +8,8 @@ const Filter = ({ filterText }) => {
     return (
         <input
             className="filter__input"
-            value={filterText}
-            onChange={onChange}
+            value={this.filterText}
+            onChange={dataToFind}
         />
     )
 

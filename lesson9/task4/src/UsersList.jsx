@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import User from './User';
+import Filter from './Filter';
 
 class UsersList extends Component {
     state = {
@@ -8,7 +9,7 @@ class UsersList extends Component {
 
     handleChange = event => {
         console.log(event.target.value);
-        this.props.onChange(this.state.filterText);
+        this.props.onChange(this.state.handleChange);
         this.setState({
             filterText: event.target.value,
         })
