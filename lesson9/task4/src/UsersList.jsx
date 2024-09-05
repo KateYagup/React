@@ -9,6 +9,7 @@ class UsersList extends Component {
 
     handleChange = event => {
         event.persist();
+        console.log('event.target.value');
         console.log(event.target.value);
         this.props.onChange(this.state.handleChange);
         this.setState({
@@ -24,7 +25,10 @@ class UsersList extends Component {
         ))
         return (
             <>
-                <Filter noChange={this.handleChange} />
+                <Filter
+                    onChange={this.handleChange}
+                    filterText={filterText}
+                />
                 {list}
             </>
         )
