@@ -18,13 +18,21 @@ class UsersList extends Component {
 
     render() {
         const usersList = this.props.users;
-        let usersToDisplay;
-        if (this.state.filterText === '') {
-            usersToDisplay = usersList
-        } else {
-            usersToDisplay = usersList
-                .filter(elem => elem.name === this.state.filterText)
-        }
+        let usersToDisplay = usersList
+            .filter(elem => elem.name === this.state.filterText)
+
+        // let usersToDisplay;
+        // if (this.state.filterText === '') {
+        //     usersToDisplay = usersList
+        // } else {
+        //     usersToDisplay = usersList
+        //         .filter(elem => elem.name === this.state.filterText)
+        // }
+
+        // let usersToDisplay = (this.state.filterText === '')
+        //     ? usersToDisplay = usersList
+        //     : usersList
+        //         .filter(elem => elem.name === this.state.filterText)
 
         const count = usersToDisplay.length;
 
