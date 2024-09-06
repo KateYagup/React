@@ -20,13 +20,10 @@ class UsersList extends Component {
         const usersList = this.props.users;
         let usersToDisplay;
         if (this.state.filterText === '') {
-            usersToDisplay = usersList.map(user => (
-                <User className='users' key={user.id} {...user} />
-            ))
+            usersToDisplay = usersList
         } else {
             usersToDisplay = usersList
                 .filter(elem => elem.name === this.state.filterText)
-
         }
 
         const count = usersToDisplay.length;
