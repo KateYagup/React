@@ -8,28 +8,45 @@ class UsersList extends Component {
     }
 
     handleChange = event => {
-        event.persist();
         console.log('event.target.value');
         console.log(event.target.value);
-        this.props.onChange(this.state.handleChange);
+        // this.props.onChange(this.state.handleChange);
         this.setState({
             filterText: event.target.value,
         })
     }
 
     render() {
+        // console.log('filterText');
+        // console.log(this.state.filterText);
         const usersList = this.props.users;
-        console.log(usersList);
-        const list = usersList.map(user => (
-            <User className='users' key={user.id} {...user} />
-        ))
+        let list;
+        if (this.state.filterText === '') {
+            list = usersList.map(user => (
+                <User className='users' key={user.id} {...user} />
+            ))
+        } else {
+            list = usersList
+                .filter(elem => elem.name === this.state.filterText)
+                .map(user => (
+                    <User className='user' key={user.id} {...user} />
+                ))
+        }
+
+        const count = list.length;
+        console.log(count);
+
         return (
             <>
                 <Filter
+                    count={count}
                     onChange={this.handleChange}
-                    filterText={this.filterText}
+                    filterText={this.state.filterText}
                 />
-                {list}
+                <ul className="users">
+                    {list}
+                </ul>
+
             </>
         )
     }
