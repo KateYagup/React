@@ -1,7 +1,3 @@
-import React from 'react';
-
-const App = () => {
-    return <div>Hello, React!</div>;
-};
-
-export default App;
+export default function Square() {
+    return <button className="square">X</button>;
+}
