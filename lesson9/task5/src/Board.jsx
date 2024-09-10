@@ -14,7 +14,7 @@ export default function Board({ xIsNext, squares, onPlay }) {
         if (xIsNext) {
             nextSquares[i] = 'X';
         } else {
-            nextSquares[i] = '0';
+            nextSquares[i] = 'O';
         }
         onPlay(nextSquares);
     }
