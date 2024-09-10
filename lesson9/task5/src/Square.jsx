@@ -10,7 +10,7 @@ export default function Square({ value, onSquareClick }) {
 
     return <button
         className="square"
-        onClick={onSquareClick}
-    // onClick={handleClick}
-    >{value}</button>;
+        onClick={onSquareClick}>
+        {value}
+    </button>;
 }
