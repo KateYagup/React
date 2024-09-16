@@ -15,6 +15,8 @@ function tryConvert(temperature, convert) {
         return '';
     }
     const output = convert(input);
+    // const rounded = output;
+
     const rounded = Math.round(output * 1000) / 1000;
     return rounded.toString();
 }
