@@ -1,26 +1,37 @@
 import React, { Component } from "react";
 
-const Expand = ({ children, title, isVisible, setVisible }) => {
+class Expand extends Component {
+    state = {
+        isVisible: false,
+    }
 
-    return (
-        <div class="expand border">
-            <div class="expand__header">
-                <span class="expand__title">{title}</span>
-                <button
-                    class="expand__toggle-btn"
-                    onClick={setVisible}
-                >
-                    {isVisible && <i class="fas fa-chevron-up"></i>}
-                    {!isVisible && <i class="fas fa-chevron-down"></i>}
-                </button>
-            </div>
-            {isVisible &&
-                <div class="expand__content">
-                    {children}
+    setVisible = () => {
+        this.setState({
+            isVisible: !this.state.isVisible,
+        })
+    }
+
+    render() {
+        return (
+            <div className="expand border">
+                <div className="expand__header">
+                    <span className="expand__title">{this.props.title}</span>
+                    <button
+                        className="expand__toggle-btn"
+                        onClick={this.setVisible}
+                    >
+                        {this.state.isVisible && <i className="fas fa-chevron-up"></i>}
+                        {!this.state.isVisible && <i className="fas fa-chevron-down"></i>}
+                    </button>
                 </div>
-            }
-        </div>
-    )
+                {this.state.isVisible &&
+                    <div className="expand__content">
+                        {this.props.children}
+                    </div>
+                }
+            </div>
+        )
+    }
 }
 
 export default Expand;
