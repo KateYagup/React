@@ -18,7 +18,7 @@ const Dialog = ({ isOpen, children, title, onClose }) => {
 
 Dialog.propTypes = {
     isOpen: PropTypes.bool,
-    children: element.isRequired,
+    // children: element.isRequired,
     title: PropTypes.string,
     onClose: PropTypes.func.isRequired
 }

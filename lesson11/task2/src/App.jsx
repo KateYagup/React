@@ -31,7 +31,8 @@ class App extends Component {
                 <Dialog
                     isOpen={this.state.isOpen}
                     onClose={this.hideDialog}
-                    title="some title" >
+                // title="some title"
+                >
                     {elem}
                 </Dialog>
             </div>
