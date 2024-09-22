@@ -8,7 +8,7 @@ import CreateTaskInput from './CreateTaskInput';
 // { text: 'Visit doctor', done: true, id: 4 },
 // { text: 'Buy meat', done: true, id: 5 },
 
-const baseUrl = 'https://crudcrud.com/api/b28c309995ee4a499bdbb5873730c1dc/tasks';
+const baseUrl = 'https://66efde95f2a8bce81be46357.mockapi.io/tasks';
 
 class TasksList extends Component {
     state = {
