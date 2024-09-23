@@ -40,7 +40,7 @@ class TasksList extends Component {
             text,
             done: false,
         }
-
+        console.log(newTask.text);
         fetch(baseUrl, {
             method: 'POST',
             headers: {
@@ -63,20 +63,52 @@ class TasksList extends Component {
     }
 
     handleTaskStatusChange = id => {
-        const updatedTasks = this.state.tasks.map(task => {
-            if (task.id === id) {
-                return { ...task, done: !task.done }
+        const { done, text } = this.state.tasks.find(task => task.id === id);
+        const updatedTask = {
+            text,
+            done: !done,
+        }
+
+        fetch(`${baseUrl}/${id}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json;utc-8'
+            },
+            body: JSON.stringify(updatedTask)
+        }).then(response => {
+            if (response.ok) {
+                this.fetchTasksList();
+            } else {
+                throw new Error('Failed to create task');
             }
-            return task;
         })
-        this.setState({ tasks: updatedTasks });
+
+
+        // const updatedTasks = this.state.tasks.map(task => {
+        //     if (task.id === id) {
+        //         return { ...task, done: !task.done }
+        //     }
+        //     return task;
+        // })
+        // this.setState({ tasks: updatedTasks });
     }
 
+
     handleTaskDelete = id => {
-        const updatedTasks = this.state.tasks
-            .filter(task => task.id !== id)
-        this.setState({ tasks: updatedTasks })
-    }
+        fetch(`${baseUrl}/${id}`, {
+            method: 'DELETE'
+        }).then(response => {
+            if (response.ok) {
+                this.fetchTasksList();
+            } else {
+                throw new Error('Failed to delete task');
+            }
+        });
+
+        // const updatedTasks = this.state.tasks
+        //     .filter(task => task.id !== id)
+        // this.setState({ tasks: updatedTasks })
+    };
 
     render() {
         const sortedList = this.state.tasks
