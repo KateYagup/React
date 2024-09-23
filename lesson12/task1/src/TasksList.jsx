@@ -9,16 +9,21 @@ import CreateTaskInput from './CreateTaskInput';
 // { text: 'Buy meat', done: true, id: 5 },
 
 const baseUrl = 'https://66efde95f2a8bce81be46357.mockapi.io/tasks';
+// const baseUrl = 'https://crudcrud.com/api/b28c309995ee4a499bdbb5873730c1dc/tasks';
 
 class TasksList extends Component {
     state = {
         tasks: []
     }
 
+    componentDidMount() {
+        this.fetchTasksList();
+    }
+
     fetchTasksList = () => {
         fetch(baseUrl).then(res => {
             if (res.ok) {
-                return res.json()
+                return res.json();
             }
         })
             .then(tasksList => {
@@ -79,7 +84,7 @@ class TasksList extends Component {
             .sort((a, b) => a.done - b.done);
         return (
             <main className="todo-list">
-                <CreateTaskInput onCreate={this.handleTaskStatusChange} />
+                <CreateTaskInput onCreate={this.onCreate} />
                 <ul className="list">
                     {sortedList.map(task => (
                         <Task
