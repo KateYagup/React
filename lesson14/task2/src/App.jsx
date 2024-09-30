@@ -1,25 +1,32 @@
 
 import React from 'react';
-// import React, { Component } from 'react';
-
-// class App extends Component {
-//     render() {
-//         return (
-//<div>Hello, React!</div>
-// )
-//     }
-// };
-
-// import React from "react";
-
-// const Dialog = () => {
-//     return null;
-// }
-
-// export default Dialog;
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+import User from './User';
 
 const App = () => {
-    return <div>Hello, React!</div>;
+    return (
+        <div className="page">
+            <Router>
+                <div className="page__content">
+                    <h1>Users</h1>
+                    <ul className="navigation">
+                        <li className="navigation__item">
+                            <a href="/users/github">Github</a>
+                        </li>
+                        <li className="navigation__item">
+                            <a href="/users/facebook">Facebook</a>
+                        </li>
+                    </ul>
+                    <Switch>
+                        <Route path="/users/:userId" component={User} />
+                        <Route path="/">
+                            <span>Select a user please</span>
+                        </Route>
+                    </Switch>
+                </div>
+            </Router>
+        </div>
+    )
 };
 
 export default App;
