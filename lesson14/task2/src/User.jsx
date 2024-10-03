@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 
 const User = ({ match }) => {
     const [userData, setUserData] = useState(null);
+    // const { userId } = useParams();
+
 
     useEffect(() => {
         fetch(`https://api.github.com/users/${match.params.userId}`)
@@ -15,7 +17,7 @@ const User = ({ match }) => {
             .then(userData => {
                 setUserData(userData);
             })
-    });
+    }, [match.params.userId]);
 
     if (!userData) {
         return null;
