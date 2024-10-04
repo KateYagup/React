@@ -7,7 +7,7 @@ const Dimensions = () => {
     });
 
 
-    useEffect = (() => {
+    useEffect(() => {
         const { innerHeight, innerWidth } = window;
         setDimensions({ width: innerWidth, height: innerHeight });
         const handleResize = e => {
