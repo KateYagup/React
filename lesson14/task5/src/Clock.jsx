@@ -15,25 +15,26 @@ console.log(utcOffset);
 
 const Clock = ({ location, offset }) => {
     const [time, setTime] = useState(new Date());
-    let newTime;
+    let localTime;
 
     useEffect(() => {
-        setInterval(() => {
+        const intervalId = setInterval(() => {
             setTime(new Date());
-            setTime(new Date(time.setHours(time.getHours() + offset + utcOffset)));
-            // newTime = new Date(time.setHours(time.getHours() + offset + utcOffset));
         }, 1000);
+        return () => {
+            clearInterval(intervalId);
+        }
+
     }, []);
 
-
+    new Date(time.setHours(time.getHours() + offset + utcOffset));
     return (
 
         <>
             <div className="clock">
                 <div className="clock__location">{location}</div>
-                <div>{offset}</div>
                 <div className="clock__time">{moment(time).format('LTS')}</div>
-                <div className="clock__time">{moment(newTime).format('LTS')}</div>
+                {/* <div className="clock__time">{moment(localTime).format('LTS')}</div> */}
             </div>
         </>
     )
