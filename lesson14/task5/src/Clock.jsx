@@ -3,33 +3,37 @@ import React, { useState, useEffect } from "react";
 import './clock.scss';
 import moment from 'moment';
 
-const getTimeWithOffset = offset => {
-    const currentTime = new Date();
-    const utcOffset = currentTime.getTimezoneOffset() / 60;
+const getTimeWithOffset = (currentTime, offset, utcOffset) => {
+    // const currentTime = new Date();
+    // const utcOffset = currentTime.getTimezoneOffset() / 60;
     return new Date(currentTime.setHours(currentTime.getHours() + offset + utcOffset));
 };
 
+const utcOffset = new Date().getTimezoneOffset() / 60;
+console.log(utcOffset);
+
 
 const Clock = ({ location, offset }) => {
-    const [newOffset, setOffset] = useState(offset);
-    let time = getTimeWithOffset(newOffset);
+    const [time, setTime] = useState(new Date());
+    let newTime;
 
     useEffect(() => {
         setInterval(() => {
-            // console.log(newOffset);
-            setOffset(offset);
-            time = getTimeWithOffset(newOffset);
+            setTime(new Date());
+            setTime(new Date(time.setHours(time.getHours() + offset + utcOffset)));
+            // newTime = new Date(time.setHours(time.getHours() + offset + utcOffset));
         }, 1000);
-        console.log(time);
-    }, [newOffset]);
+    }, []);
 
 
     return (
+
         <>
             <div className="clock">
                 <div className="clock__location">{location}</div>
-                <div>{newOffset}</div>
+                <div>{offset}</div>
                 <div className="clock__time">{moment(time).format('LTS')}</div>
+                <div className="clock__time">{moment(newTime).format('LTS')}</div>
             </div>
         </>
     )
