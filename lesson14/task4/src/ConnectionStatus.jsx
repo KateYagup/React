@@ -25,6 +25,9 @@ const ConnectionStatus = () => {
     </div>;
 }
 
+
+
+
 // class ConnectionStatus extends Component {
 //     constructor(props) {
 //         super(props);
